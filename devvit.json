@@ -1,0 +1,64 @@
+{
+  "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
+  "name": "crowdsense",
+  "post": {
+    "dir": "dist/client",
+    "entrypoints": {
+      "default": {
+        "inline": true,
+        "entry": "splash.html"
+      },
+      "game": {
+        "entry": "game.html"
+      }
+    }
+  },
+  "server": {
+    "dir": "dist/server",
+    "entry": "index.cjs"
+  },
+  "menu": {
+    "items": [
+      {
+        "label": "Crowdsense: post today's question",
+        "description": "Create today's Crowdsense post",
+        "location": "subreddit",
+        "forUserType": "moderator",
+        "endpoint": "/internal/menu/post-create"
+      },
+      {
+        "label": "Crowdsense: queue a question",
+        "description": "Schedule your own question for a future day",
+        "location": "subreddit",
+        "forUserType": "moderator",
+        "endpoint": "/internal/menu/queue-question"
+      }
+    ]
+  },
+  "triggers": {
+    "onAppInstall": "/internal/triggers/on-app-install"
+  },
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vite build"
+  },
+  "scheduler": {
+    "tasks": {
+      "daily-post": {
+        "endpoint": "/internal/scheduler/daily-post",
+        "cron": "5 0 * * *"
+      }
+    }
+  },
+  "permissions": {
+    "reddit": {
+      "asUser": [
+        "SUBMIT_COMMENT"
+      ]
+    },
+    "journeys": true
+  },
+  "forms": {
+    "queueQuestion": "/internal/form/queue-question"
+  }
+}

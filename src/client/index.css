@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+
+:root {
+  --paper: #f5efe2;
+  --ink: #1d1b33;
+  --muted: #6d6879;
+  --line: #e2d9c6;
+}
+html, body { background: var(--paper); color: var(--ink); overscroll-behavior: none; }
+body { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; -webkit-font-smoothing: antialiased; }
+.display { font-family: 'Avenir Next Condensed', 'Arial Narrow', 'Roboto Condensed', ui-sans-serif, system-ui, sans-serif; font-weight: 800; letter-spacing: -0.01em; }
+.num { font-variant-numeric: tabular-nums; }
+.paper-grain { background-image: radial-gradient(rgba(29,27,51,0.05) 1px, transparent 1px); background-size: 6px 6px; }
+
+@keyframes pop-in { from { opacity: 0; transform: translateY(10px) scale(0.98); } to { opacity: 1; transform: none; } }
+.pop-in { animation: pop-in 0.35s cubic-bezier(.2,.9,.3,1.2) both; }
+@keyframes nudge { 0%, 100% { transform: translateX(-50%); } 50% { transform: translateX(calc(-50% + 10px)); } }
+.nudge { animation: nudge 1.2s ease-in-out infinite; }
+@keyframes dot-in { from { transform: scale(0); } to { transform: scale(1); } }
+.dot { animation: dot-in 0.25s ease-out both; }
