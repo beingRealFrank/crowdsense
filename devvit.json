@@ -60,5 +60,8 @@
   },
   "forms": {
     "queueQuestion": "/internal/form/queue-question"
+  },
+  "dev": {
+    "subreddit": "crowdsense_daily_dev"
   }
 }
